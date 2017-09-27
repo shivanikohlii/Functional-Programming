@@ -1,0 +1,10 @@
+#lang racket
+;Shivani Kohli
+;Gives the difference of subsequent numbers so subtracts index(2) from index(1)
+; difference list -> list
+(define differences
+  (lambda (s)
+    (cond [(null? s) '()]
+          [(<= (length s) 1)'()]
+          [else(cons(- (cadr s)(car s))(differences (cdr s)))]
+          )))

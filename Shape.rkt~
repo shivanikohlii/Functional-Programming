@@ -1,0 +1,10 @@
+#lang racket
+;;Shivani Kohli
+;;Takes in a list gives up the () without the atoms in it
+; List -> '()
+
+(define shape
+  (lambda (lat)
+        (cond [(null? lat)lat][(not (list? (car lat))) (shape (cdr lat))]
+              [else (cons (shape (car lat)) (shape (cdr lat)))]
+              )))

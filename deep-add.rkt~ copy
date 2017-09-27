@@ -1,0 +1,24 @@
+#lang racket
+(define deep-add
+  (lambda (s)
+    (cond
+          [( null? s) 0 ]
+          [else
+           (cond
+             [(number? (car s)) (+(car s)(deep-add(cdr s)))]
+             [else
+              (cond
+                [(list? (car s))(+(car s)(deep-list-add(cdr s)))]
+                [else (deep-add (cdr s))]
+                )
+              ]
+             )
+          ]  
+                             
+          )))
+ 
+(define deep-list-add
+  (lambda (s)
+    (cond
+      [(number? (car s)) (deep-add(+ (car s)(cadr s)))]
+          )))

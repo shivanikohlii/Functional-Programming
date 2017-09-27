@@ -1,0 +1,11 @@
+#lang racket
+;Shivani Kohli
+;zip list -> pair
+;Upon given two lists returns pairs of the first two elements of the list. 
+(define zip
+  (lambda (s t)
+    (cond [(or (null? s)( null? t)) '()]
+          [( < (length s)(length t)) (error 'zip "first list is too short")]
+          [( > (length s)(length t)) (error 'zip "second list is too short")]
+          [else(cons(car s)(car t)) (zip (cdr s)(cdr t))]
+          )))
